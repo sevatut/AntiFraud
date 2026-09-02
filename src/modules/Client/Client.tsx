@@ -1,4 +1,8 @@
-export default function Client({user}) {
+import { User } from "../../types/user";
+
+export default function Client({user} : {
+  user: User;
+}) {
   return (
     <tr>
         <td className="text-lg px-4 py-4">{user.id}</td>
