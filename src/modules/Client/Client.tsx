@@ -1,4 +1,4 @@
-export default function Client({user}: any) {
+export default function Client({user}) {
   return (
     <tr>
         <td className="text-lg px-4 py-4">{user.id}</td>

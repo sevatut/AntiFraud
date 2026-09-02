@@ -6,10 +6,11 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchUsers } from "../../services/usersApi";
 import { useEffect, useMemo, useState } from "react";
 import { getRandomInt } from "../../utils/random";
+import { User } from "../../types/user";
 
 
 export default function Reports() {
-  const [filter, setFilter]: any = useState({
+  const [filter, setFilter] = useState({
     name: "",
     id: "",
     balance: 0
@@ -18,11 +19,12 @@ export default function Reports() {
   const [page, setPage] = useState(0);
   const [entries, setEntries] = useState(10);
 
-  const handleChange = (event: any, key: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>, key: string) => {
     setFilter({
         ...filter,
         [key]: event.target.value
-  })}
+    })
+}
 
   useEffect(()=> {
     setPage(0);
@@ -39,7 +41,17 @@ export default function Reports() {
       const data = await fetchUsers();
       return {
         ...data,
-        users: data.users.map((user: any) => ({
+        users: data.users.map((user: User & {
+          firstName: string;
+          maidenName: string;
+          lastName: string;
+          address: {
+            city: string;
+            stateCode: string;
+            address: string;
+          }
+
+        } ) => ({
           ...user,
           fullName: `${user.firstName} ${user.maidenName?.charAt(0)} ${user.lastName}`,
           balance: getRandomInt(10000, 100000),
@@ -60,15 +72,15 @@ export default function Reports() {
     let users = data.users;
 
     if (filter.id) 
-      return users.filter((user: any) => user.id == filter.id);
+      return users.filter((user: User) => user.id.toString() == filter.id);
 
     if (filter.name) {
-      users = users.filter((user: any) => 
+      users = users.filter((user: User) => 
     user.fullName.toLowerCase().includes(filter.name.toLowerCase()))
     }
 
     if (filter.balance) 
-      users = users.filter((user: any) => user.balance >= filter.balance);
+      users = users.filter((user: User) => user.balance >= filter.balance);
 
     return users;
 
@@ -101,3 +113,4 @@ export default function Reports() {
     </main>
   )
 }
+

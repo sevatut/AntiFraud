@@ -1,4 +1,12 @@
-export default function Pagination({amount, page, entries, onPagination, onChange}: any) {
+export default function Pagination({amount, page, entries, onPagination, onChange}: 
+    {
+        amount: number;
+        page: number;
+        entries: number;
+        onPagination: React.Dispatch<React.SetStateAction<number>>,
+        onChange: React.Dispatch<React.SetStateAction<number>>
+    }    
+) {
 
   return (
     <div className="flex justify-between px-4">
@@ -20,7 +28,7 @@ export default function Pagination({amount, page, entries, onPagination, onChang
             </span>
 
             <div className="relative flex items-center bg-[#F9F9F9]">
-                <select value={entries} onChange={(e) => onChange(e.target.value)} className="appearance-none bg-transparent text-lg 
+                <select value={entries} onChange={(e) => onChange(+e.target.value)} className="appearance-none bg-transparent text-lg 
                 text-[#000000] pl-4 pr-14 py-4 cursor-pointer focus:outline-none z-10">
                     <option value="5">5 entries per page</option>
                     <option value="10">10 entries per page</option>

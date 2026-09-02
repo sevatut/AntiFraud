@@ -1,8 +1,16 @@
 import { useState } from "react"
 import PopUp from "../PopUp/PopUp";
 
-export default function ControlPanel( {filter, onChange}: any ) {
-  const [popUp, setPopUp]: any = useState(false);
+export default function ControlPanel( {filter, onChange}: 
+    {
+        filter: {
+            name: string;
+            id: string;
+            balance: number;
+        },
+        onChange:(event: React.ChangeEvent<HTMLInputElement, Element>, key: string) => void
+    }) {
+  const [popUp, setPopUp] = useState<false | "edit" | "add" >(false);
 
   return (
   <div className="flex px-24 justify-between items-center bg-[#F9F9F9] py-3">

@@ -1,7 +1,7 @@
 import Client from "../Client/Client"
+import { User } from "../../types/user"
 
-
-export default function ClientsTable({users}: any) {
+export default function ClientsTable({users}: {users: User[] } ) {
 
   return (
     <table className="w-full text-left">
@@ -32,7 +32,7 @@ export default function ClientsTable({users}: any) {
         </thead>
 
         <tbody>
-            {users.map((user: any) => (
+            {users.map((user: User) => (
                 <Client key={user.id} user={user}></Client>
             ))}
         </tbody>
