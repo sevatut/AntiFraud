@@ -1,4 +1,5 @@
 import './App.css'
+import { Outlet } from '@tanstack/react-router'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 
@@ -8,7 +9,7 @@ function App() {
       <Header />
       <div className='flex h-dvh'>
         <Sidebar />
-        <main></main>
+        <Outlet />
       </div>
     </>
   )

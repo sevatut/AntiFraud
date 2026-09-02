@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router'
+
 export default function Sidebar() {
   return (
     // <div className="p-10 w-1/7 box-border bg-[#1C7FDA]">
@@ -41,15 +43,21 @@ export default function Sidebar() {
         <nav>
             <ul className="flex flex-col items-center pt-10">
                 <li className="mb-7">
-                    <img src="icons/dashboard-white.png" alt="Dashboard" className="h-5"/>
+                    <Link to="/dashboard">
+                        <img src="icons/dashboard-white.png" alt="Dashboard" className="h-5"/>
+                    </Link>
                 </li>
 
                 <li className="mb-7">
-                    <img src="icons/reports-white.png" alt="Dashboard" className="h-5"/>
+                    <Link to="/">
+                        <img src="icons/reports-white.png" alt="Dashboard" className="h-5"/>
+                    </Link>
                 </li>
 
                 <li className="mb-7">
-                    <img src="icons/transactions-white.png" alt="Dashboard" className="h-5"/>
+                    <Link to="/transactions">
+                        <img src="icons/transactions-white.png" alt="Dashboard" className="h-5"/>
+                    </Link>
                 </li>
 
                 <li className="mb-7">
