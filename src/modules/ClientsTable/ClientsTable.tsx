@@ -1,6 +1,7 @@
 import Client from "../Client/Client"
 import { User } from "../../types/user"
 import { ChevronDown } from "lucide-react"
+import titles from "../../constants/titles"
 
 export default function ClientsTable({users}: {users: User[] } ) {
 
@@ -8,27 +9,14 @@ export default function ClientsTable({users}: {users: User[] } ) {
     <table className="w-full text-left">
         <thead>
             <tr>
-                <th scope="col" className="relative font-normal p-4 flex items-center justify-between"> 
-                    <span>CID</span> <ChevronDown color='#798388' size={16} strokeWidth={2} />
-                </th>          
-                <th scope="col" className="relative font-normal p-4"> 
-                    <span>Full Name</span> <img src="buttons/caret-gray.png" alt="Caret" className="absolute right-6 top-1/2"/>
-                </th>            
-                <th scope="col" className="relative font-normal p-4"> 
-                    <span>City</span> <img src="buttons/caret-gray.png" alt="Caret" className="absolute right-6 top-1/2"/>
-                </th> 
-                <th scope="col" className="relative font-normal p-4"> 
-                    <span>State</span> <img src="buttons/caret-gray.png" alt="Caret" className="absolute right-6 top-1/2"/>
-                </th> 
-                <th scope="col" className="relative font-normal p-4"> 
-                    <span>Address</span> <img src="buttons/caret-gray.png" alt="Caret" className="absolute right-6 top-1/2"/>
-                </th> 
-                <th scope="col" className="relative font-normal p-4"> 
-                    <span>Phone Number</span> <img src="buttons/caret-gray.png" alt="Caret" className="absolute right-6 top-1/2"/>
-                </th> 
-                <th scope="col" className="relative font-normal p-4"> 
-                    <span>Acc Balance</span> <img src="buttons/caret-gray.png" alt="Caret" className="absolute right-6 top-1/2"/>
-                </th>            
+                {titles.map((title) => (
+                    <th scope="col" className="relative font-normal p-4">
+                        <div className="flex items-center justify-between">
+                            <span>{title}</span> 
+                            <ChevronDown color='#798388' size={16} strokeWidth={2} />
+                        </div> 
+                    </th>
+                ))}        
             </tr>
         </thead>
 
