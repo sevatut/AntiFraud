@@ -1,3 +1,5 @@
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+
 export default function Pagination({amount, page, entries, onPagination, onChange}: 
     {
         amount: number;
@@ -11,7 +13,7 @@ export default function Pagination({amount, page, entries, onPagination, onChang
   return (
     <div className="flex justify-between px-4">
         <nav className="flex items-center">
-            <img src="buttons/left.png" alt="Left" />
+            <ChevronLeft color="#1C7FDA" size={40} strokeWidth={1.1} />
 
             <ul className="flex w-full justify-start gap-15 px-10">
                 {Array.from({ length: Math.ceil(amount / entries) }, (_, index) => (
@@ -19,7 +21,7 @@ export default function Pagination({amount, page, entries, onPagination, onChang
                 ))}
             </ul>
 
-            <img src="buttons/right.png" alt="Right" />
+            <ChevronRight color="#1C7FDA" size={40} strokeWidth={1.1} />
         </nav>
 
         <div className="flex items-center">
@@ -35,7 +37,7 @@ export default function Pagination({amount, page, entries, onPagination, onChang
                     <option value="15">15 entries per page</option>
                 </select>
 
-                <img src="buttons/caret-blue.png" alt="Caret" className="absolute right-4 pointer-events-none z-0"/>
+                <ChevronDown color='#1C7FDA' size={36} strokeWidth={1} />
             </div>
         </div>
     </div>

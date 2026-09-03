@@ -3,12 +3,12 @@ import downloadPDF from "../../utils/pdf";
 export default function DashboardCard( {title, value, image, isAnalyze} : {
     title: string;
     value: string;
-    image: string;
+    image: React.JSX.Element;
     isAnalyze: boolean;
 } ) {
   return (
             <div className="flex p-20 py-12 flex-col items-start bg-white border border-[#E3E4E5] rounded-xs gap-8">
-                <img src={`statistics/${image}`} alt="Transactions" />
+                {image}
                 <p className="text-5xl font-medium">{value}</p>
                 <h3 className="text-xl mb-20">{title}</h3>
 

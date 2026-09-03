@@ -15,7 +15,7 @@ export default function PopUp({
           className="absolute w-5 h-5 top-4 right-4 cursor-pointer"
           onClick={onClose}
         >
-          <img src="buttons/close.png" alt="Close" />
+          <span className="text-3xl">✕</span>
         </button>
 
         {isEdit ? (
