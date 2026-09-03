@@ -7,9 +7,9 @@ const dashboard = {
     transactions:  { 
         amount: 9300,
         category: [
-            { name: 'Deposits', value: 8000 },
-            { name: 'Loans', value: 1000 },
-            { name: 'Withdrawals', value: 300 },
+            { name: 'Deposits', value: 8000, color: "#1C7FDA"},
+            { name: 'Loans', value: 1000, color: "#8DBFED" },
+            { name: 'Withdrawals', value: 300, color: "#C6DFF6" },
         ] 
     },
 

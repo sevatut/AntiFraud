@@ -1,8 +1,6 @@
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
-const COLORS = ['#1C7FDA', '#8DBFED', '#C6DFF6'];
-
-export default function Chart( {data, amount} : { data: {name: string, value: number }[], amount: number } ) {
+export default function Chart( {data, amount} : { data: {name: string, value: number, color: string }[], amount: number } ) {
   return (
     <div className="flex p-20 py-12 flex-col items-center bg-white border border-[#E3E4E5] rounded-xs row-span-2">
         <h3 className="text-xl mb-36">Processed Transactions</h3>
@@ -12,8 +10,8 @@ export default function Chart( {data, amount} : { data: {name: string, value: nu
                 <ResponsiveContainer>
                     <PieChart>
                         <Pie data={data} cx="50%" cy="50%" dataKey="value">
-                            {data.map((__, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} stroke="none"/>
+                            {data.map((category, index) => (
+                            <Cell key={`cell-${index}`} fill={category.color} stroke="none"/>
                             ))}
                         </Pie>
                     </PieChart>

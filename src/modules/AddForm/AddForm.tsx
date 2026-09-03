@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useQueryClient } from "@tanstack/react-query";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { userSchema } from "../../schemas/userSchema";
+import { userSchema, UserFormData } from "../../schemas/userSchema";
 import { User, UsersResponse } from "../../types/user";
 import { z } from "zod";
 import Label from "../Label/Label";
 
-type UserFormData = z.input<typeof userSchema>;
 
 export default function AddForm({ onClose }: {
   onClose: () => void
