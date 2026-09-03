@@ -21,20 +21,16 @@ export default function Chart( {data, amount} : { data: {name: string, value: nu
             <p className="text-5xl font-medium mb-5">{amount}</p>
 
             <ul>
-                <li className="flex items-center text-lg gap-2 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-[#1C7FDA]" />
-                    <span>Deposits</span>
-                </li>  
-                    
-                <li className="flex items-center text-lg gap-2 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-[#8DBFED]" />
-                    <span>Loans</span>
-                </li>  
-
-                <li className="flex items-center text-lg gap-2 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-[#C6DFF6]" />
-                    <span>Withdrawals</span>
-                </li>
+                {data.map((category) => (
+                    <li className="flex items-center text-lg gap-2 mb-2">
+                        <span className="w-2 h-2 rounded-full" style={
+                            {
+                                backgroundColor: category.color
+                            }
+                        }/>
+                        <span>{category.name}</span>
+                    </li>
+                ))}
             </ul>
         </div>
     </div>
