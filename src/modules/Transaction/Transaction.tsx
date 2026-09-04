@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import TransactionType from "../../types/transactions";
 import { colors } from "../../constants/colors";
 
