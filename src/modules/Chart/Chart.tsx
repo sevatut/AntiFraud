@@ -22,7 +22,7 @@ export default function Chart( {data, amount} : { data: {name: string, value: nu
 
             <ul>
                 {data.map((category) => (
-                    <li className="flex items-center text-lg gap-2 mb-2">
+                    <li key={category.name} className="flex items-center text-lg gap-2 mb-2">
                         <span className="w-2 h-2 rounded-full" style={
                             {
                                 backgroundColor: category.color

@@ -10,7 +10,7 @@ export default function ClientsTable({users}: {users: User[] } ) {
         <thead>
             <tr>
                 {titles.map((title) => (
-                    <th scope="col" className="relative font-normal p-4">
+                    <th key={title} scope="col" className="relative font-normal p-4">
                         <div className="flex items-center justify-between">
                             <span>{title}</span> 
                             <ChevronDown color='#798388' size={16} strokeWidth={2} />
