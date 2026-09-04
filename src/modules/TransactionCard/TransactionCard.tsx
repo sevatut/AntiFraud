@@ -1,17 +1,7 @@
 import { colors } from "../../constants/colors"
+import { TransactionCardType } from "../../types/transaction"
 
-export default function TransactionCard( {id, owner, atm, date, method, money, status, onClick}: 
-    {
-        id: string,
-        owner: string,
-        atm: string,
-        date: string,
-        method: string,
-        money: string,
-        status: keyof typeof colors,
-        onClick: () => void
-    }
- ) {
+export default function TransactionCard( {id, owner, atm, date, method, money, status, onClick}: TransactionCardType) {
 
     return (
     <div className="flex justify-between bg-[#F9F9F9] px-4 py-2 mb-1 cursor-pointer" onClick={onClick}>
