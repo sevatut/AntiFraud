@@ -14,7 +14,7 @@ export default function ControlPanel( {filter, onChange}:
 
   return (
   <div className="flex px-24 justify-between items-center bg-[#F9F9F9] py-3">
-        <input type="text" placeholder="🔍 Search" className="border border-[#B5B5B5] p-3 w-78 bg-white" 
+        <input type="text" placeholder="Search" className="border border-[#B5B5B5] p-3 w-78 bg-white" 
         value={filter.name} onChange={(e) => onChange(e, "name")}/>
         
         <div>
