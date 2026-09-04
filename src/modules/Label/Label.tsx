@@ -1,7 +1,6 @@
-import { FieldError, FieldErrorsImpl, Merge, UseFormRegister } from "react-hook-form"
+import { LabelType } from "../../types/label";
 
-export default function Label({name, field, register, error}: 
-    {name: string, field: string, register: UseFormRegister<any>, error: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined }) {
+export default function Label({name, field, register, error}: LabelType) {
     return (
         <label className="flex flex-col mb-5">
             <p className="text-2xl font-medium mb-2">{name}</p>
