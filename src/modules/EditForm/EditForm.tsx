@@ -1,12 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useQueryClient } from "@tanstack/react-query";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { editUserSchema } from "../../schemas/userSchema";
+import { editUserSchema, EditUserFormData } from "../../schemas/userSchema";
 import { UsersResponse } from "../../types/user";
-import { z } from "zod";
 import Label from "../Label/Label";
 
-type EditUserFormData = z.input<typeof editUserSchema>;
 
 export default function EditForm({ onClose }: {
   onClose: () => void;

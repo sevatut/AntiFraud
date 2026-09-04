@@ -95,3 +95,5 @@ export const editUserSchema = z.object({
 });
 
 export type UserFormData = z.infer<typeof userSchema>;
+
+export type EditUserFormData = z.input<typeof editUserSchema>;
