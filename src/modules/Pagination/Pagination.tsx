@@ -1,14 +1,7 @@
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { PaginationType } from "../../types/paginations";
 
-export default function Pagination({amount, page, entries, onPagination, onChange}: 
-    {
-        amount: number;
-        page: number;
-        entries: number;
-        onPagination: React.Dispatch<React.SetStateAction<number>>,
-        onChange: React.Dispatch<React.SetStateAction<number>>
-    }    
-) {
+export default function Pagination({amount, page, entries, onPagination, onChange}: PaginationType) {
 
   return (
     <div className="flex justify-between px-4">
