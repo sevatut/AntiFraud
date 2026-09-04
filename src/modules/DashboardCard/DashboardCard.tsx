@@ -1,11 +1,7 @@
+import { DashboardCardType } from "../../types/card";
 import downloadPDF from "../../utils/pdf";
 
-export default function DashboardCard( {title, value, image, isAnalyze} : {
-    title: string;
-    value: string;
-    image: React.JSX.Element;
-    isAnalyze: boolean;
-} ) {
+export default function DashboardCard( {title, value, image, isAnalyze} : DashboardCardType) {
   return (
             <div className="flex p-20 py-12 flex-col items-start bg-white border border-[#E3E4E5] rounded-xs gap-8">
                 {image}
