@@ -1,20 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import TransactionType from "../../types/transactions";
-
-const colors = {
-    pending: {
-        bg: "#FFB648",
-        text: "#FFFFFF" 
-    },
-    approved: {
-        bg: "#E3F0C0",
-        text: "#4CAF50" 
-    },
-    rejected: {
-        bg: "#FBEBEA",
-        text: "#D32F2F" 
-    }
-};
+import { colors } from "../../constants/colors";
 
 export default function Transaction( {transaction, onClick}: {transaction: TransactionType, onClick: (id: string, newStatus: TransactionType["status"]) => void} ) {
   return (
