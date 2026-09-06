@@ -1,17 +1,18 @@
 import { User } from "../../types/user";
+import { fields } from "../../constants/fields";
 
 export default function Client({user} : {
   user: User;
 }) {
+
   return (
     <tr>
-        <td className="text-lg px-4 py-4">{user.id}</td>
-        <td className="text-lg px-4 py-4">{user.fullName}</td>
-        <td className="text-lg px-4 py-4">{user.city}</td>
-        <td className="text-lg px-4 py-4">{user.state}</td> 
-        <td className="text-lg px-4 py-4">{user.address}</td>
-        <td className="text-lg px-4 py-4">{user.phone}</td>
-        <td className="text-lg px-4 py-4 text-right">${user.balance}</td>
+        {fields.map((key) => {
+          if (key == "balance")
+            return <td key={key} className="text-lg px-4 py-4 text-right">${user[key]}</td> 
+          else 
+            return <td key={key} className="text-lg px-4 py-4">{user[key]}</td> 
+        })}
     </tr>
   )
 }
