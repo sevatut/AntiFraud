@@ -53,7 +53,7 @@ export const initialTransactions: TransactionType[] = [
     method: "Cash-out",
     money: "20.00",
     status: "pending",
-    address: "332 Patterson Street",
+    address: "506 Elm Street",
     summary: {
       payment: "Visa",
       cvvResponse: "CVV2 Match (M)",
@@ -76,7 +76,7 @@ export const initialTransactions: TransactionType[] = [
     method: "Cash-out",
     money: "20.00",
     status: "rejected",
-    address: "332 Patterson Street",
+    address: "947 Maple Avenue",
 
     summary: {
       payment: "Visa",
@@ -99,7 +99,7 @@ export const initialTransactions: TransactionType[] = [
     method: "Cash-out",
     money: "20.00",
     status: "pending",
-    address: "332 Patterson Street",
+    address: "382 Pine Street",
     summary: {
       payment: "Visa",
       cvvResponse: "CVV2 Match (M)",

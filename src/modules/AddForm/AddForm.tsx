@@ -3,7 +3,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema, UserFormData } from "../../schemas/userSchema";
 import { User, UsersResponse } from "../../types/user";
-import { z } from "zod";
 import Label from "../Label/Label";
 import { labels } from "../../constants/fields";
 
