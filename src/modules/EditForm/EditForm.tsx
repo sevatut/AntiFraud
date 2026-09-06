@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { editUserSchema, EditUserFormData } from "../../schemas/userSchema";
 import { UsersResponse } from "../../types/user";
 import Label from "../Label/Label";
+import { labels } from "../../constants/fields";
 
 
 export default function EditForm({ onClose }: {
@@ -54,19 +55,9 @@ export default function EditForm({ onClose }: {
       </h3>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Label name="ID" field="id" register={register} error={errors.id}/>
-
-        <Label name="Full name" field="fullName" register={register} error={errors.fullName}/>
-        
-        <Label name="City" field="city" register={register} error={errors.city}/>
-
-        <Label name="State" field="state" register={register} error={errors.state}/>
-
-        <Label name="Address" field="address" register={register} error={errors.address}/>
-
-        <Label name="Phone Number" field="phone" register={register} error={errors.phone} />
-
-        <Label name="Balance" field="balance" register={register} error={errors.balance}/>
+        {labels.map((label) => (
+                <Label name={label.title} field={label.name} register={register} error={errors[label.name]}/>
+          ))}  
 
         <div className="text-right">
           <button

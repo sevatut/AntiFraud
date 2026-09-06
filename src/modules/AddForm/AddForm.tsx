@@ -5,6 +5,7 @@ import { userSchema, UserFormData } from "../../schemas/userSchema";
 import { User, UsersResponse } from "../../types/user";
 import { z } from "zod";
 import Label from "../Label/Label";
+import { labels } from "../../constants/fields";
 
 
 export default function AddForm({ onClose }: {
@@ -59,17 +60,9 @@ export default function AddForm({ onClose }: {
       <h3 className="text-3xl font-bold mb-10">Add Customer</h3>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Label name="Full name" field="fullName" register={register} error={errors.fullName}/>
-
-        <Label name="City" field="city" register={register} error={errors.city}/>
-
-        <Label name="State" field="state" register={register} error={errors.state}/>
-
-        <Label name="Address" field="address" register={register} error={errors.address}/>
-
-        <Label name="Phone Number" field="phone" register={register} error={errors.phone} />
-
-        <Label name="Balance" field="balance" register={register} error={errors.balance}/>
+        {labels.filter((label) => label.name != "id").map((label) => (
+          <Label name={label.title} field={label.name} register={register} error={errors[label.name as keyof UserFormData]}/>
+        ))}        
 
         <div className="text-right">
           <button type="submit" className="w-42 p-3 border text-lg border-[#86B4E1] text-[#4E80D1] 
