@@ -1,5 +1,6 @@
 import TransactionType from "../../types/transactions";
 import { colors } from "../../constants/colors";
+import { AddressMap } from "../AddressMap/AddressMap";
 
 export default function Transaction( {transaction, onClick}: {transaction: TransactionType, onClick: (id: string, newStatus: TransactionType["status"]) => void} ) {
   return (
@@ -58,7 +59,7 @@ export default function Transaction( {transaction, onClick}: {transaction: Trans
                     
                     <p className="text-lg mb-5">{transaction.address}</p>
 
-                    <img className="h-8/10 w-full" src="others/map.png" alt="Map" />
+                    <AddressMap address={transaction.address} />
                 </div>
 
                 <div className="bg-white border border-[#E3E4E5] rounded-sm px-5 py-6">
