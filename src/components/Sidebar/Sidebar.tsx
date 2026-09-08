@@ -10,7 +10,7 @@ export default function Sidebar() {
 
     if (isShort) 
      return (
-        <nav className="w-18 h-[88vh] box-border bg-[#1C7FDA]">
+        <nav className="w-18 min-h-[88vh] box-border bg-[#1C7FDA]">
             <ul className="flex flex-col items-center pt-10">
                 {links.map((link) => (
                     <li key={link.title} className="mb-7">
@@ -24,7 +24,7 @@ export default function Sidebar() {
   )
     
     else 
-        return ( <div className="h-[88vh] py-10 pl-6 pr-8 w-1/7 box-border bg-[#1C7FDA]">
+        return ( <div className="min-h-[88vh] py-10 pl-6 pr-8 w-1/7 box-border bg-[#1C7FDA]">
         <p className="text-xl text-[#9BC1FF] mb-10">Fraud Management</p>
         <nav>
             <ul className='pl-3'>
