@@ -5,12 +5,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { editUserSchema, EditUserFormData } from "../../schemas/userSchema";
 import { UsersResponse } from "../../types/user";
 import Label from "../Label/Label";
-import { labels } from "../../constants/fields";
+import { fields } from "../../constants/fields";
+import { useTranslation } from "react-i18next";
 
 export default function EditForm({ onClose }: {
   onClose: () => void;
 }) {
   const queryClient = useQueryClient();
+
+  const { t } = useTranslation();
 
   const {
     register,
@@ -106,12 +109,12 @@ export default function EditForm({ onClose }: {
   return (
     <>
       <h3 className="text-3xl font-bold mb-10">
-        Edit Info
+        {t("reports.popUp.edit.header")}
       </h3>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        {labels.map((label) => (
-          <Label key={label.name} name={label.title} field={label.name} register={register} error={errors[label.name]}/>
+        {fields.map((label) => (
+          <Label key={label} field={label} register={register} error={errors[label]}/>
         ))}
 
         <div className="text-right">
@@ -119,7 +122,7 @@ export default function EditForm({ onClose }: {
             type="submit"
             className="w-42 p-3 border text-lg border-[#86B4E1] text-[#4E80D1] rounded-xs cursor-pointer
             hover:bg-[#1C7FDA] hover:text-white mr-2">
-            Edit
+            {t("reports.popUp.edit.button")}
           </button>
         </div>
       </form>

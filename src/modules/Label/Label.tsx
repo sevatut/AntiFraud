@@ -1,9 +1,12 @@
+import { useTranslation } from "react-i18next";
 import { LabelType } from "../../types/label";
 
-export default function Label({name, field, register, error}: LabelType) {
+export default function Label({field, register, error}: LabelType) {
+    const { t } = useTranslation(); 
+    
     return (
         <label className="flex flex-col mb-5">
-            <p className="text-2xl font-medium mb-2">{name}</p>
+            <p className="text-2xl font-medium mb-2">{t(`reports.popUp.fields.${field}`)}</p>
 
             <input
                 {...register(field)}

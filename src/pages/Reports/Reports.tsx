@@ -7,6 +7,7 @@ import { fetchUsers } from "../../services/usersApi";
 import { useEffect, useMemo, useState } from "react";
 import { getRandomInt } from "../../utils/random";
 import { User } from "../../types/user";
+import { useTranslation } from "react-i18next";
 
 
 export default function Reports() {
@@ -64,6 +65,8 @@ export default function Reports() {
     },
   });
 
+  const { t } = useTranslation();
+
   const filteredUsers = useMemo(() => {
     if (!data) {
       return [];
@@ -98,7 +101,7 @@ export default function Reports() {
     <main className="bg-[#E9EFF2] pt-8 w-full">
         <Tabs />
         <div className="bg-white pt-4">
-            <h2 className="flex h-14 items-center justify-center text-2xl text-[#4E80D1]">Customer profile</h2>
+            <h2 className="flex h-14 items-center justify-center text-2xl text-[#4E80D1]">{t("reports.controlPanel.header")}</h2>
             
             <ControlPanel filter={filter} onChange={handleChange}  />
 

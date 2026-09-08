@@ -1,9 +1,12 @@
+import { useTranslation } from "react-i18next";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
-export default function Chart( {data, amount} : { data: {name: string, value: number, color: string }[], amount: number } ) {
-  return (
+export default function Chart( {data, amount} : { data: {title: string, value: number, color: string }[], amount: number } ) {
+    const { t } = useTranslation();
+  
+    return (
     <div className="flex p-20 py-12 flex-col items-center bg-white border border-[#E3E4E5] rounded-xs row-span-2">
-        <h3 className="text-xl mb-36">Processed Transactions</h3>
+        <h3 className="text-xl mb-36">{t("dashboard.chart.header")}</h3>
         
         <div className="flex flex-col">
           <div className="w-75 h-75">
@@ -22,13 +25,13 @@ export default function Chart( {data, amount} : { data: {name: string, value: nu
 
             <ul>
                 {data.map((category) => (
-                    <li key={category.name} className="flex items-center text-lg gap-2 mb-2">
+                    <li key={category.title} className="flex items-center text-lg gap-2 mb-2">
                         <span className="w-2 h-2 rounded-full" style={
                             {
                                 backgroundColor: category.color
                             }
                         }/>
-                        <span>{category.name}</span>
+                        <span>{t(`dashboard.chart.${category.title}`)}</span>
                     </li>
                 ))}
             </ul>

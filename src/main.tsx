@@ -7,6 +7,7 @@ import { RouterProvider, createRouter, createRootRoute, createRoute } from '@tan
 import Dashboard from './pages/Dashboard/Dashboard.tsx';
 import Reports from './pages/Reports/Reports.tsx';
 import Transactions from './pages/Transactions/Transactions.tsx';
+import "./i18n";
 
 const queryClient = new QueryClient();
 

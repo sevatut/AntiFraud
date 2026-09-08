@@ -3,10 +3,13 @@ import Transaction from "../../modules/Transaction/Transaction"
 import TransactionType from "../../types/transactions"
 import { useState } from "react"
 import { initialTransactions } from "../../constants/transactions";
+import { useTranslation } from "react-i18next";
 
 export default function Transactions() {
   const [current, setCurrent] = useState("112");
   const [transactions, setTransactions] = useState<TransactionType[]>(initialTransactions);
+
+  const { t } = useTranslation();
 
   const handleUpdate = (id: string, newStatus: TransactionType['status']) => {
     setTransactions(prevTransactions =>
@@ -26,7 +29,7 @@ export default function Transactions() {
         </div>
 
         <div className="px-8 pt-8 w-full">
-            <h2 className="text-lg text-[#4E80D1] font-medium uppercase mb-7">Fraudulent activity alert</h2>
+            <h2 className="text-lg text-[#4E80D1] font-medium uppercase mb-7">{t("transactions.header")}</h2>
 
             <Transaction transaction={transactions.filter((transaction) => transaction.id == current)[0]} onClick={handleUpdate}></Transaction>
         </div>

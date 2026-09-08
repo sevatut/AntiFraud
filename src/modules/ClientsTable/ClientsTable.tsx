@@ -2,8 +2,10 @@ import Client from "../Client/Client"
 import { User } from "../../types/user"
 import { ChevronDown } from "lucide-react"
 import titles from "../../constants/titles"
+import { useTranslation } from "react-i18next"
 
 export default function ClientsTable({users}: {users: User[] } ) {
+  const { t } = useTranslation();
 
   return (
     <table className="w-full text-left">
@@ -12,7 +14,7 @@ export default function ClientsTable({users}: {users: User[] } ) {
                 {titles.map((title) => (
                     <th key={title} scope="col" className="relative font-normal p-4">
                         <div className="flex items-center justify-between">
-                            <span>{title}</span> 
+                            <span>{t(`reports.table.${title}`)}</span> 
                             <ChevronDown color='#798388' size={16} strokeWidth={2} />
                         </div> 
                     </th>
@@ -22,7 +24,7 @@ export default function ClientsTable({users}: {users: User[] } ) {
 
         <tbody>
             {users.map((user: User) => (
-                <Client key={user.id} user={user}></Client>
+                <Client key={user.id} user={user} />
             ))}
         </tbody>
     </table>

@@ -4,9 +4,9 @@ export const dashboard = {
     transactions:  { 
         amount: 9300,
         category: [
-            { name: 'Deposits', value: 8000, color: "#1C7FDA"},
-            { name: 'Loans', value: 1000, color: "#8DBFED" },
-            { name: 'Withdrawals', value: 300, color: "#C6DFF6" },
+            { title: 'deposits', value: 8000, color: "#1C7FDA"},
+            { title: 'loans', value: 1000, color: "#8DBFED" },
+            { title: 'withdrawals', value: 300, color: "#C6DFF6" },
         ] 
     },
 
@@ -17,35 +17,35 @@ export const dashboard = {
 
     card: {
       allTransactions: {
-      title: "All transactions",
+      title: "transactions",
       value: "9300",
       image: <ArrowRightLeft size={75} strokeWidth={1.5} color='#86B4E1'></ArrowRightLeft>,
       isAnalyze: false
     },
 
       approvalRate: {
-        title: "Approval Rate",
+        title: "rate",
         value: "99.3%",
         image: <Percent size={75} strokeWidth={1.5} color='#45D700'></Percent>,
         isAnalyze: false
       },
 
       pending: {
-        title: "Pending Approval",
+        title: "pending",
         value: "10",
         image: <Hourglass size={75} strokeWidth={1.5} color='#86B4E1'></Hourglass>,
         isAnalyze: false
       },
 
       rejected: {
-        title: "Rejected Transictions",
+        title: "rejected",
         value: "15",
         image: <X size={75} strokeWidth={1.5} color='#FF5858'></X>,
         isAnalyze: true
       },
 
       postponed: {
-        title: "Postponed Approval",
+        title: "postponed",
         value: "70",
         image: <Sun size={75} strokeWidth={1.5} color='#FFB648'></Sun>,
         isAnalyze: true

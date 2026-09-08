@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 export default function Diagram( {transactions}: {transactions: number} ) {
   const value = transactions * 0.96;
   const max = transactions;
@@ -9,6 +11,8 @@ export default function Diagram( {transactions}: {transactions: number} ) {
   
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center bg-white border border-[#E3E4E5] rounded-xs gap-8 pt-20">
       <svg width="200" height="200" style={{ transform: 'rotate(-90deg)' }}>
@@ -19,7 +23,7 @@ export default function Diagram( {transactions}: {transactions: number} ) {
           {value}
         </text>
       </svg>
-      <h3 className="text-xl">Approved Transactions</h3>
+      <h3 className="text-xl">{t("dashboard.approved")}</h3>
     </div>
   );
 }

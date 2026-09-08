@@ -1,3 +1,3 @@
-const titles = ["CID", "Full Name", "City", "State", "Address", "Phone Number", "Acc Balance"];
+const titles = ["id", "fullName", "city", "state", "address", "number", "balance"];
 
 export default titles;

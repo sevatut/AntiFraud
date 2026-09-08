@@ -2,31 +2,31 @@ import { ArrowRightLeft, CircleQuestionMark, ClipboardList, LayoutDashboard, Set
 
 export const links = [
     {
-        title: "Dashboard",
+        title: "dashboard",
         address: "/dashboard",
         icon: <LayoutDashboard className='mr-2.5' size={16} color='#86B4E1' />,
         isChevron: false,
     },
     {
-        title: "Reports",
+        title: "reports",
         address: "/",
         icon: <ClipboardList size={16} color='#86B4E1' className='mr-2.5' />,
         isChevron: true,
     },
     {
-        title: "Transactions",
+        title: "transactions",
         address: "/transactions",
         icon: <ArrowRightLeft size={16} color='#86B4E1' className='mr-2.5' />,
         isChevron: true,
     },
     {
-        title: "Help",
+        title: "help",
         address: "/",
         icon: <CircleQuestionMark size={16} color='#86B4E1' className='mr-2.5' />,
         isChevron: false,
     },
     {
-        title: "Settings",
+        title: "settings",
         address: "/",
         icon: <Settings size={16} color='#86B4E1' className='mr-2.5' />,
         isChevron: false,
