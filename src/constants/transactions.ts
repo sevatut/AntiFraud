@@ -18,8 +18,11 @@ export const initialTransactions: TransactionType[] = [
       bank: "AMERICAN EXPRESS INTERNATIONAL (NZ) INC."
     },
     account: {
+      number: "488754555",
+      amount: "20.00",
+      creation: "11/5/2022 3:12 PST",
+      update: "11/5/2022 3:12 PST",
       id: "871100455592",
-      number: "488754555"
     }
   },
 
@@ -40,8 +43,11 @@ export const initialTransactions: TransactionType[] = [
       bank: "AMERICAN EXPRESS INTERNATIONAL (NZ) INC."
     },
     account: {
+      number: "488754555",
+      amount: "20.00",
+      creation: "11/5/2022 3:12 PST",
+      update: "11/5/2022 3:12 PST",
       id: "871100455592",
-      number: "488754555"
     }
   },
 
@@ -62,8 +68,11 @@ export const initialTransactions: TransactionType[] = [
       bank: "AMERICAN EXPRESS INTERNATIONAL (NZ) INC."
     },
     account: {
+      number: "488754555",
+      amount: "20.00",
+      creation: "11/5/2022 3:12 PST",
+      update: "11/5/2022 3:12 PST",
       id: "871100455592",
-      number: "488754555"
     }
   },
 
@@ -86,8 +95,11 @@ export const initialTransactions: TransactionType[] = [
       bank: "AMERICAN EXPRESS INTERNATIONAL (NZ) INC."
     },
     account: {
+      number: "488754555",
+      amount: "20.00",
+      creation: "11/5/2022 3:12 PST",
+      update: "11/5/2022 3:12 PST",
       id: "871100455592",
-      number: "488754555"
     }
   },
 
@@ -108,8 +120,11 @@ export const initialTransactions: TransactionType[] = [
       bank: "AMERICAN EXPRESS INTERNATIONAL (NZ) INC."
     },
     account: {
+      number: "488754555",
+      amount: "20.00",
+      creation: "11/5/2022 3:12 PST",
+      update: "11/5/2022 3:12 PST",
       id: "871100455592",
-      number: "488754555"
     }
   },
 ]

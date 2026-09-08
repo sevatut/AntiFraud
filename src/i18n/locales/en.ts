@@ -80,13 +80,20 @@ export default {
       header: "Fraudulent activity alert",
       summary: {
         header: "Summary",
-
-
-
+        payment: "Payment",
+        cvvResponse: "CVV Response",
+        avsResponse: "AVS Response",
+        number: "Number",
+        bank: "Bank"
       },
 
       account: {
-        header: "Account"
+        header: "Account",
+        number: "Number",
+        amount: "Order Amount",
+        creation: "Creation Date",
+        update: "Update Date",
+        id: "Last Order Ext. ID",
       },
       atm: "ATM",
       approveButton: "Approve",

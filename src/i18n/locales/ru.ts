@@ -80,13 +80,20 @@ export default {
       header: "Предупреждение о мошеннических действиях",
       summary: {
         header: "Резюме",
-
-
-
+        payment: "Платеж",
+        cvvResponse: "CVV Ответ",
+        avsResponse: "AVS Ответ",
+        number: "Номер",
+        bank: "Банк"
       },
 
       account: {
-        header: "Аккаунт"
+        header: "Аккаунт",
+        number: "Номер",
+        amount: "Сумма заказа",
+        creation: "Дата создания",
+        update: "Дата обновления",
+        id: "ID последнего заказа",
       },
       atm: "Банкомат",
       approveButton: "Одобрить",
