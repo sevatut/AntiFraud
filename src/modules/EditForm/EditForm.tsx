@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useQueryClient } from "@tanstack/react-query";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -5,7 +6,6 @@ import { editUserSchema, EditUserFormData } from "../../schemas/userSchema";
 import { UsersResponse } from "../../types/user";
 import Label from "../Label/Label";
 import { labels } from "../../constants/fields";
-
 
 export default function EditForm({ onClose }: {
   onClose: () => void;
@@ -15,10 +15,59 @@ export default function EditForm({ onClose }: {
   const {
     register,
     handleSubmit,
+    reset,
+    watch,
     formState: { errors },
   } = useForm<EditUserFormData>({
     resolver: zodResolver(editUserSchema),
   });
+
+  const id = watch("id");
+
+  useEffect(() => {
+    if (!id) {
+      reset({
+          id: "",
+          fullName: "",
+          city: "",
+          state: "",
+          address: "",
+          phone: "",
+          balance: "",
+      });
+    };
+
+    const usersData = queryClient.getQueryData<UsersResponse>(["users"]);
+
+    if (!usersData) return;
+
+    const user = usersData.users.find(
+      (user) => user.id === Number(id)
+    );
+
+    if (!user) {
+      reset({
+          id: "",
+          fullName: "",
+          city: "",
+          state: "",
+          address: "",
+          phone: "",
+          balance: "",
+      });
+      return;
+    };
+
+    reset({
+      id: String(user.id),
+      fullName: user.fullName ?? "",
+      city: user.city ?? "",
+      state: user.state ?? "",
+      address: user.address ?? "",
+      phone: user.phone ?? "",
+      balance: user.balance != null ? String(user.balance) : "",
+    });
+  }, [id, queryClient, reset]);
 
   const updateUser = (oldUser: EditUserFormData) => {
     queryClient.setQueryData<UsersResponse>(
@@ -30,12 +79,18 @@ export default function EditForm({ onClose }: {
           ...oldData,
 
           users: oldData.users.map((user) =>
-            user.id === oldUser.id
+            user.id === Number(oldUser.id)
               ? {
                   ...user,
-
-                  ...Object.fromEntries( Object.entries(oldUser).filter( ([_, value]) => value !== "" && value !== null && value !== undefined ) )
-                }
+                  ...Object.fromEntries(
+                    Object.entries(oldUser).filter(
+                      ([_, value]) =>
+                        value !== "" &&
+                        value !== null &&
+                        value !== undefined
+                    )
+                  ),
+              }
               : user
           ),
         };
@@ -56,12 +111,13 @@ export default function EditForm({ onClose }: {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         {labels.map((label) => (
-                <Label name={label.title} field={label.name} register={register} error={errors[label.name]}/>
-          ))}  
+          <Label key={label.name} name={label.title} field={label.name} register={register} error={errors[label.name]}/>
+        ))}
 
         <div className="text-right">
           <button
-            type="submit" className="w-42 p-3 border text-lg border-[#86B4E1] text-[#4E80D1] rounded-xs cursor-pointer 
+            type="submit"
+            className="w-42 p-3 border text-lg border-[#86B4E1] text-[#4E80D1] rounded-xs cursor-pointer
             hover:bg-[#1C7FDA] hover:text-white mr-2">
             Edit
           </button>
