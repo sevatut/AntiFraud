@@ -28,8 +28,8 @@ export default function ClientsTable({users, onSort}: {
         </thead>
 
         <tbody>
-            {users.map((user: User) => (
-                <Client key={user.id} user={user} />
+            {users.map((user: User, index) => (
+                <Client key={user.id} user={user} isGray={index % 2 == 0}/>
             ))}
         </tbody>
     </table>
