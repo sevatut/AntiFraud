@@ -19,6 +19,7 @@ export default function Reports() {
 
   const [page, setPage] = useState(0);
   const [entries, setEntries] = useState(10);
+  const [tab, setTab] = useState("clients");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>, key: string) => {
     setFilter({
@@ -99,7 +100,9 @@ export default function Reports() {
 
   return (
     <main className="bg-[#E9EFF2] pt-8 w-full">
-        <Tabs />
+        <Tabs currentTab={tab} onClick={setTab}/>
+        
+        { tab == "clients" ? (
         <div className="bg-white pt-4">
             <h2 className="flex h-14 items-center justify-center text-2xl text-[#4E80D1]">{t("reports.controlPanel.header")}</h2>
             
@@ -113,6 +116,7 @@ export default function Reports() {
                 <Pagination amount={filteredUsers.length} page={page} entries={entries} onPagination={setPage} onChange={setEntries}/>
             </div>
         </div>
+        ) : <p>{t(`reports.tabs.${tab}`)}</p> }
     </main>
   )
 }

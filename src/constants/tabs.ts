@@ -1,0 +1,1 @@
+export const tabs = ["clients", "deposit", "withdraw", "loans", "history"];

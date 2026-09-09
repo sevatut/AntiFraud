@@ -15,7 +15,7 @@ export default {
       deposit: "Deposit",
       withdraw: "Withdraw",
       loans: "Loans",
-      transaction: "Transaction History"
+      history: "Transaction History"
       },
       controlPanel: {
         header: "Customer profile",
