@@ -4,7 +4,10 @@ import { ChevronDown } from "lucide-react"
 import titles from "../../constants/titles"
 import { useTranslation } from "react-i18next"
 
-export default function ClientsTable({users}: {users: User[] } ) {
+export default function ClientsTable({users, onSort}: {
+    users: User[], 
+    onSort: (field: keyof User) => void
+    } ) {
   const { t } = useTranslation();
 
   return (
@@ -15,7 +18,9 @@ export default function ClientsTable({users}: {users: User[] } ) {
                     <th key={title} scope="col" className="relative font-normal p-4">
                         <div className="flex items-center justify-between">
                             <span>{t(`reports.table.${title}`)}</span> 
-                            <ChevronDown color='#798388' size={16} strokeWidth={2} />
+                            <button className="cursor-pointer" onClick={() => onSort(title)}>
+                                <ChevronDown color='#798388' size={16} strokeWidth={2} />
+                            </button>
                         </div> 
                     </th>
                 ))}        

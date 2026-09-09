@@ -31,7 +31,7 @@ export default {
         city: "Город",
         state: "Штат",
         address: "Адрес",
-        number: "Номер телефона",
+        phone: "Номер телефона",
         balance: "Баланс аккаунта"
       },
       pagination: {

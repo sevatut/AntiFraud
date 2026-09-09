@@ -31,7 +31,7 @@ export default {
         city: "City",
         state: "State",
         address: "Address",
-        number: "Phone number",
+        phone: "Phone number",
         balance: "Acc Balance"
       },
       pagination: {

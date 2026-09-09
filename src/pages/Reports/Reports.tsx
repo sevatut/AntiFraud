@@ -20,6 +20,8 @@ export default function Reports() {
   const [page, setPage] = useState(0);
   const [entries, setEntries] = useState(10);
   const [tab, setTab] = useState("clients");
+  const [sort, setSort] = useState<keyof User>("id");
+  const [isAsc, setAsc] = useState(true); 
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>, key: string) => {
     setFilter({
@@ -27,6 +29,11 @@ export default function Reports() {
         [key]: event.target.value
     })
 }
+
+  const handleSort = (field: keyof User) => {
+    setAsc(!isAsc);
+    setSort(field);
+  }
 
   useEffect(()=> {
     setPage(0);
@@ -86,9 +93,23 @@ export default function Reports() {
     if (filter.balance) 
       users = users.filter((user: User) => user.balance >= filter.balance);
 
+    if (sort) {
+      if (sort == "balance" || sort == "id")
+        users = users.sort((a: User, b: User) => a[sort] - b[sort]);
+      else 
+        users = users.sort((a: User, b: User) => a[sort].toString().localeCompare(b[sort].toString()));
+      
+      users = isAsc ? users : users.reverse();
+    } 
+
     return users;
 
-  }, [filter, data])
+  }, [filter, data, sort, isAsc])
+
+  useEffect(() => {
+    
+    filteredUsers.sort();
+  }, [sort, isAsc]);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -109,7 +130,7 @@ export default function Reports() {
             <ControlPanel filter={filter} onChange={handleChange}  />
 
             <div className="p-2">
-                <ClientsTable users={filteredUsers.slice(entries * page, (page + 1) * entries)}/>
+                <ClientsTable users={filteredUsers.slice(entries * page, (page + 1) * entries)} onSort={handleSort}/>
 
                 <hr className="border-[#C6C6C6] mb-6"/>
 
