@@ -5,8 +5,8 @@ export default function Chart( {data, amount} : { data: {title: string, value: n
     const { t } = useTranslation();
   
     return (
-    <div className="flex p-20 py-12 flex-col items-center bg-white border border-[#E3E4E5] rounded-xs row-span-2">
-        <h3 className="text-xl mb-36">{t("dashboard.chart.header")}</h3>
+    <div className="flex p-18 py-12 flex-col items-center bg-white border border-[#E3E4E5] rounded-xs row-span-2">
+        <h3 className="text-xl mb-28">{t("dashboard.chart.header")}</h3>
         
         <div className="flex flex-col">
           <div className="w-75 h-75">
