@@ -8,7 +8,7 @@ export default function TransactionCard( {id, owner, atm, date, method, money, s
         <div>
             <h3 className="text-lg font-medium">{owner}</h3>
             <p className="text-[#A5A5A5] font-light">#{atm}</p>
-            <time dateTime="11/5/2022 3:12 PST" className="text-[#6C757D]">{date}</time>
+            <time dateTime="11/5/2022 3:12 PST" className="text-[#6C757D]">{date.toLocaleString()}</time>
         </div>
 
         <div className="flex gap-4">

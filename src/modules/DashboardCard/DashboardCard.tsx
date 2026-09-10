@@ -14,7 +14,10 @@ export default function DashboardCard( {title, value, image, isAnalyze} : Dashbo
                 { isAnalyze ? <button className="w-48 p-3 border text-lg border-[#86B4E1] text-[#4E80D1] rounded-xs cursor-pointer 
                     hover:bg-[#1C7FDA] hover:text-white mr-2" onClick={() => downloadPDF( {
                         title,
-                        value: +value
+                        fields: [{
+                            name: "Transactions",
+                            value
+                        }]
                     })}>{t("analyzeButton")}</button> : null }
             </div>
         )

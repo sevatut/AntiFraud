@@ -74,7 +74,8 @@ export default {
       pending: "Pending Approval",
       approved: "Approved Transactions",
       rejected: "Rejected Transictions",
-      postponed: "Postponed Approval"
+      postponed: "Postponed Approval",
+      report: "Transactions"
     },
     transactions: {
       header: "Fraudulent activity alert",

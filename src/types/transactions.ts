@@ -2,7 +2,7 @@ export default interface TransactionType {
  id: string;
  owner: string;
  atm: string;
- date: string;
+ date: Date;
  method: string;
  money: string;
  status: "pending" | "approved" | "rejected";

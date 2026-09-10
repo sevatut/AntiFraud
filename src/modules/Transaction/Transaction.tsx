@@ -4,9 +4,18 @@ import { AddressMap } from "../AddressMap/AddressMap";
 import { useTranslation } from "react-i18next";
 import { blocks } from "../../constants/blocks";
 import InformationBlock from "../InformationBlock/InformationBlock";
+import downloadPDF from "../../utils/pdf";
 
 export default function Transaction( {transaction, onClick}: {transaction: TransactionType, onClick: (id: string, newStatus: TransactionType["status"]) => void} ) {
     const { t } = useTranslation();
+
+    const handleAnalyze = () => {
+        downloadPDF( {
+            title: transaction.id, fields: [
+                { name: "Amount", value: transaction.account.amount},
+                { name: "Bank", value: transaction.summary.bank},
+            ]})
+    }
   
     return (
     <>
@@ -24,7 +33,7 @@ export default function Transaction( {transaction, onClick}: {transaction: Trans
                         <h3 className="text-2xl font-medium underline underline-offset-2 mb-2">{transaction.owner}</h3>
                         <div className="flex gap-3">
                             <p className="text-[#A5A5A5] text-lg font-light">#{transaction.atm}</p>
-                            <time dateTime="11/5/2022 3:12 PST" className="text-[#6C757D] text-lg">{transaction.date}</time>
+                            <time dateTime="11/5/2022 3:12 PST" className="text-[#6C757D] text-lg">{transaction.date.toLocaleString()}</time>
                         </div>
                     </div>
 
@@ -61,7 +70,8 @@ export default function Transaction( {transaction, onClick}: {transaction: Trans
                 onClick={() => onClick(transaction.id, "approved")}>{t("transactions.approveButton")}</button>
                 <button className="p-3 bg-[#EB5E53] text-white cursor-pointer rounded-sm w-full"
                 onClick={() => onClick(transaction.id, "rejected")}>{t("transactions.declineButton")}</button>
-                <button className="p-3 text-[#4E80D1] border border-[#D5D5D5] cursor-pointer rounded-sm w-full">{t("analyzeButton")}</button>
+                <button className="p-3 text-[#4E80D1] border border-[#D5D5D5] cursor-pointer rounded-sm w-full"
+                onClick={handleAnalyze}>{t("analyzeButton")}</button>
             </div>
     </>
   )
