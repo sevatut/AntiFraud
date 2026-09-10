@@ -35,7 +35,11 @@ export default function Sidebar() {
                     <li key={link.title} className="mb-7 flex justify-between">
                         <Link to={link.address} className='flex items-center'>
                             {link.icon}
-                            <span className="text-white text-lg font-medium">{t(`sidebar.${link.title}`)}</span>
+                            <span className="text-lg font-medium" style={
+                                {
+                                    color: pathname.slice(1) === link.title ? "#94D2BD" : "white" 
+                                }
+                            }>{t(`sidebar.${link.title}`)}</span>
                         </Link>
 
                         {link.isChevron ? <ChevronDown color='#FFFFFF' size={20} strokeWidth={2} /> : null}

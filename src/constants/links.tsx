@@ -21,13 +21,13 @@ export const links = [
     },
     {
         title: "help",
-        address: "/",
+        address: "/help",
         icon: <CircleQuestionMark size={16} color='#86B4E1' className='mr-2.5' />,
         isChevron: false,
     },
     {
         title: "settings",
-        address: "/",
+        address: "/settings",
         icon: <Settings size={16} color='#86B4E1' className='mr-2.5' />,
         isChevron: false,
     },
