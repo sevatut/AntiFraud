@@ -117,6 +117,13 @@ export default {
       alert: "A user with that login already exists",
       question: "Have an account?",
       link: "Sign In"
+    },
+    settings: {
+      language: "Language"
+    },
+    languages: {
+      en: "English",
+      ru: "Russian"
     }
   },
 };

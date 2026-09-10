@@ -116,6 +116,13 @@ export default {
       alert: "Такой пользователь уже существует",
       question: "Есть аккаунт?",
       link: "Войти"
+    },
+    settings: {
+      language: "Язык"
+    },
+    languages: {
+      en: "Английский",
+      ru: "Русский"
     }
   },
 };
