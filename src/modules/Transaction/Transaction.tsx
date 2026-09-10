@@ -16,6 +16,11 @@ export default function Transaction( {transaction, onClick}: {transaction: Trans
                 { name: "Bank", value: transaction.summary.bank},
             ]})
     }
+
+    const handleClick = (id: string, newStatus: "pending" | "approved" | "rejected") => {
+        if (confirm(t("transactions.confirm")))
+            onClick(id, newStatus);
+    }
   
     return (
     <>
@@ -67,9 +72,9 @@ export default function Transaction( {transaction, onClick}: {transaction: Trans
 
             <div className="flex bg-white border border-[#E3E4E5] px-5 py-3 gap-4">
                 <button className="p-3 bg-[#4CAF50] text-white cursor-pointer rounded-sm w-full" 
-                onClick={() => onClick(transaction.id, "approved")}>{t("transactions.approveButton")}</button>
+                onClick={() => handleClick(transaction.id, "approved")}>{t("transactions.approveButton")}</button>
                 <button className="p-3 bg-[#EB5E53] text-white cursor-pointer rounded-sm w-full"
-                onClick={() => onClick(transaction.id, "rejected")}>{t("transactions.declineButton")}</button>
+                onClick={() => handleClick(transaction.id, "rejected")}>{t("transactions.declineButton")}</button>
                 <button className="p-3 text-[#4E80D1] border border-[#D5D5D5] cursor-pointer rounded-sm w-full"
                 onClick={handleAnalyze}>{t("analyzeButton")}</button>
             </div>

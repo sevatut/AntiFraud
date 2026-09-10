@@ -57,7 +57,6 @@ export default {
           address: "Address",
           phone: "Phone Number",
           balance: "Balance"
-
         }
       }
     },
@@ -87,7 +86,6 @@ export default {
         number: "Number",
         bank: "Bank"
       },
-
       account: {
         header: "Account",
         number: "Number",
@@ -98,7 +96,8 @@ export default {
       },
       atm: "ATM",
       approveButton: "Approve",
-      declineButton: "Decline"
+      declineButton: "Decline",
+      confirm: "Are you sure?"
     },
     analyzeButton: "Analyze",
     authorization: {

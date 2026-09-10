@@ -57,7 +57,6 @@ export default {
           address: "Адресс",
           phone: "Номер телефона",
           balance: "Баланс"
-
         }
       }
     },
@@ -86,7 +85,6 @@ export default {
         number: "Номер",
         bank: "Банк"
       },
-
       account: {
         header: "Аккаунт",
         number: "Номер",
@@ -97,7 +95,8 @@ export default {
       },
       atm: "Банкомат",
       approveButton: "Одобрить",
-      declineButton: "Отказать"
+      declineButton: "Отказать",
+      confirm: "Вы уверены?"
     },
     analyzeButton: "Анализировать",
     authorization: {
