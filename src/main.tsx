@@ -10,8 +10,20 @@ import Transactions from './pages/Transactions/Transactions.tsx';
 import "./i18n";
 import Help from './pages/Help/Help.tsx';
 import Settings from './pages/Settings/Settings.tsx';
+import Authorization from './pages/Authorization/Authorization.tsx';
+import Registration from './pages/Registration/Registration.tsx';
 
 const queryClient = new QueryClient();
+
+const requireAuth = () => {
+  const currentUser = localStorage.getItem("currentUser");
+
+  if (!currentUser) {
+    throw redirect({
+      to: '/login',
+    })
+  }
+}
 
 const rootRoute = createRootRoute({
   component: App,
@@ -30,34 +42,51 @@ const indexRoute = createRoute({
 const dashboardRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/dashboard',
+  beforeLoad: requireAuth,
   component: Dashboard,
 })
 
 const reportsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/reports',
+  beforeLoad: requireAuth,
   component: Reports,
 })
 
 const transactionsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/transactions',
+  beforeLoad: requireAuth,
   component: Transactions,
 })
 
 const helpRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/help',
+  beforeLoad: requireAuth,
   component: Help,
 })
 
 const settingsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/settings',
+  beforeLoad: requireAuth,
   component: Settings,
 })
 
-const routeTree = rootRoute.addChildren([indexRoute, dashboardRoute, reportsRoute, transactionsRoute, helpRoute, settingsRoute])
+const loginRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/login',
+  component: Authorization,
+})
+
+const registerRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/register',
+  component: Registration,
+})
+
+const routeTree = rootRoute.addChildren([indexRoute, dashboardRoute, reportsRoute, transactionsRoute, helpRoute, settingsRoute, loginRoute, registerRoute])
 const router = createRouter({ routeTree })
 
 declare module '@tanstack/react-router' {

@@ -106,11 +106,6 @@ export default function Reports() {
 
   }, [filter, data, sort, isAsc])
 
-  useEffect(() => {
-    
-    filteredUsers.sort();
-  }, [sort, isAsc]);
-
   if (isLoading) {
     return <div>Loading...</div>;
   }

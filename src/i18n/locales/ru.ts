@@ -99,6 +99,24 @@ export default {
       approveButton: "Одобрить",
       declineButton: "Отказать"
     },
-    analyzeButton: "Анализировать"
+    analyzeButton: "Анализировать",
+    authorization: {
+      header: "Авторизация",
+      login: "Логин",
+      password: "Пароль",
+      button: "Войти",
+      alert: "Неправильное имя или пароль",
+      question: "Нет аккаунта?",
+      link: "Создать аккаунт"
+    },
+    registration: {
+      header: "Регистрация",
+      login: "Логин",
+      password: "Пароль",
+      button: "Создать аккаунт",
+      alert: "Такой пользователь уже существует",
+      question: "Есть аккаунт?",
+      link: "Войти"
+    }
   },
 };

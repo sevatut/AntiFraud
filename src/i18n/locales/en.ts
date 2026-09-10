@@ -99,6 +99,24 @@ export default {
       approveButton: "Approve",
       declineButton: "Decline"
     },
-    analyzeButton: "Analyze"
+    analyzeButton: "Analyze",
+    authorization: {
+      header: "Authorization",
+      login: "Login",
+      password: "Password",
+      button: "Sign in",
+      alert: "Incorrect username or password",
+      question: "Don't have an account?",
+      link: "Sign up"
+    },
+    registration: {
+      header: "Registration",
+      login: "Login",
+      password: "Password",
+      button: "Sign Up",
+      alert: "A user with that login already exists",
+      question: "Have an account?",
+      link: "Sign In"
+    }
   },
 };
